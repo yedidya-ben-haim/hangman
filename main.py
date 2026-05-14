@@ -1,4 +1,4 @@
-# Git:
+# Git: https://github.com/yedidya-ben-haim/hangman.git
 
 import random
 
