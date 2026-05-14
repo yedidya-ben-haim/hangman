@@ -26,17 +26,17 @@ def is_valid_input(letter, guessed_letters):
     פונקציה שבודקת האם הקלט תקין לפי הכללים.
     מחזירה True אם הקלט תקין, או הודעת שגיאה אם לא.
     """
-    # בדיקה 1: האם הוכנס תו אחד בלבד?
+    #  האם הוכנס תו אחד בלבד?
     if len(letter) != 1:
         return "שגיאה: עליך להקיש אות אחת בלבד."
 
-    # בדיקה 2: האם התו הוא אות באנגלית?
-    # הפונקציה isalpha בודקת אם מדובר באות, והבדיקה isascii מוודאת שזה אנגלית
+    #  האם התו הוא אות באנגלית?
+
     if not letter.isalpha() or not letter.isascii():
         return "שגיאה: הקלט חייב להיות אות באנגלית (A-Z)."
 
-    # בדיקה 3: האם האות כבר נוחשה?
-    # אנחנו נמיר הכל ל-lower כדי ש- 'A' ו- 'a' ייחשבו כאותה אות
+    #  האם האות כבר נוחשה?
+
     if letter.lower() in guessed_letters:
         return f"You already guessed the letter. '{letter}', Try another letter."
 
@@ -48,14 +48,14 @@ def get_guess(guessed_letters):
     פונקציה שמנהלת את קבלת הקלט מהמשתמש עד שהוא מכניס תו תקין.
     """
     while True:
-        user_input = input("Guess the letter: ").strip()  # strip מסיר רווחים מיותרים
+        user_input = input("Guess the letter: ").strip()
 
         result = is_valid_input(user_input, guessed_letters)
 
         if result is True:
             return user_input.lower()
         else:
-            print(result)  # הדפסת הודעת השגיאה שחזרה מהפונקציה
+            print(result)
 
 def check_letter_in_word(word_to_guess, new_guess):
     if new_guess in word_to_guess:
@@ -114,24 +114,6 @@ def main():
             max_tries -=1
 
     print(ending_message(guess_the_word, word_status))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 if __name__ == "__main__":
     main()
